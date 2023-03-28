@@ -2,7 +2,7 @@
   <!-- <h2>{{title || 'Counter'}}</h2> -->
   <h2>{{customTitle}}</h2>
   <p>{{counter}} <sup>2</sup> = {{getSQRT()}} </p>
-  <p>{{counter}} <sup>2</sup> = {{getSQRT()}} </p>
+  <p data-testid="counter2">{{counter}}</p>
 
   <p>{{counter}} <sup>2</sup> = {{squareCounter}} </p>
   <p>{{counter}} <sup>2</sup> = {{squareCounter}} </p> 
@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         getSQRT() {
-            console.log('getSQRT');
+            //console.log('getSQRT');
             return this.counter * this.counter
         },
         increase() {
@@ -73,7 +73,7 @@ export default {
     },
     computed: {
         squareCounter() {
-            console.log('computed getSQRT');
+            //console.log('computed getSQRT');
             return this.counter * this.counter
         },
         customTitle() {
