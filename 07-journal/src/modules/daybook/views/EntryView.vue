@@ -37,6 +37,7 @@ import Swal from 'sweetalert2'
 
 
 export default {
+    name: 'EntryView',
     props: {
         id: {
             type: String,
@@ -90,7 +91,7 @@ export default {
         },
         async saveEntry(){
 
-            new Swal({
+            Swal.fire({
                 title: 'Espere por favor',
                 allowOutsideClick: false
             })
@@ -123,7 +124,7 @@ export default {
             })
 
             if(isConfirmed){
-                new Swal({
+                Swal.fire({
                     title: 'Espere por favor',
                     allowOutsideClick: false
                 })
