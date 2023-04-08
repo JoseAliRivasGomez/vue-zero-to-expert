@@ -2,6 +2,8 @@ import { createStore } from "vuex"
 import journal from "@/modules/daybook/store/journal";
 import { journalState } from "../../../../mock-data/test-journal-state";
 
+import authApi from '@/api/authAPI'
+
 const createVuexStore = (initialState) => createStore({
     modules: {
         journal: {
@@ -12,6 +14,18 @@ const createVuexStore = (initialState) => createStore({
 })
 
 describe('Vuex - Journal Module', () => { 
+
+    beforeAll( async() => { //ONE TIME
+
+        const { data } = await authApi.post(':signInWithPassword', {
+            email: 'test@test.com',
+            password: '123456',
+            returnSecureToken: true
+        })
+
+        localStorage.setItem('idToken', data.idToken )
+
+    })
 
     //Basicas
     test('Este es el estado inicial, debe de tener este estado', () => { 
